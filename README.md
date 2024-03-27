@@ -7,9 +7,13 @@ Spring MVC
 Spring Data JPA
 SpringDoc OpenAPI 3
 Postgresql
+
+
 Práticas adotadas
 SOLID, DRY, YAGNI, KISS
 API REST
+
+
 Consultas com Spring Data JPA
 Injeção de Dependências
 Tratamento de respostas de erro
