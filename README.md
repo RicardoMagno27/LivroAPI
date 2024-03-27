@@ -1,4 +1,6 @@
-API para gerenciar tarefas (CRUD) que faz parte desse desafio para pessoas desenvolvedoras backend júnior, que se candidatam para a Simplify.
+API para gerenciar tarefas (CRUD) criando livros
+
+
 
 
 Tecnologias
