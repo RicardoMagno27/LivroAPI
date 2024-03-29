@@ -14,36 +14,35 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/livros")
-@RequiredArgsConstructor
-@CrossOrigin
+@RequestMapping("/livros")
+@CrossOrigin(origins = "*")
 public class LivroController {
 
     @Autowired
     private LivroService livroService;
 
-    @PostMapping
+    @PostMapping("/create")
     @Operation(summary = "criar Livro", description = "metodo que cria um dado", tags = "livros")
     ResponseEntity<List<Livro>> create(@Valid @RequestBody Livro todo) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(livroService.create(todo));
     }
 
-@GetMapping
+@GetMapping("/list")
 @Operation(summary = "Mostrar os dados", description = "metodo que mostra os dados", tags = "livros")
 
     List<Livro> list(){
         return livroService.list();
     }
 
-@PutMapping("{id}")
+@PutMapping("update/{id}")
 @Operation(summary = "atualizar os dados", description = "metodo que atualiza os dados", tags = "livros")
 
     List<Livro>update(@PathVariable Long id, @RequestBody Livro livro){
         return livroService.update(id,livro);
 }
 
-@DeleteMapping("{id}")
+@DeleteMapping("delete/{id}")
 @Operation(summary = "Deletar os dados", description = "metodo que deleta os dados", tags = "livros")
 
     List<Livro>delete(@PathVariable Long id){

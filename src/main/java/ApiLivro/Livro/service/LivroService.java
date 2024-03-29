@@ -2,6 +2,7 @@ package ApiLivro.Livro.service;
 import ApiLivro.Livro.util.BadRequestException;
 import ApiLivro.Livro.entity.Livro;
 import ApiLivro.Livro.repository.LivroRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 
@@ -12,14 +13,16 @@ import java.util.List;
 
 @Service
 public class LivroService {
+    @Autowired
     private LivroRepository livroRepository;
+
 
     public LivroService(LivroRepository livroRepository) {
         this.livroRepository= livroRepository;
     }
-    public List<Livro> list() {
-        Sort sort = Sort.by(Direction.DESC, "autor")
-                .and(Sort.by(Direction.ASC, "edicao"));
+    public   List<Livro> list() {
+        Sort sort = Sort.by(Direction.ASC, "id");
+
 
        return livroRepository.findAll(sort);
     }
